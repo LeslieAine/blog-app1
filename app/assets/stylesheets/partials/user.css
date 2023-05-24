@@ -1,39 +1,39 @@
 .user-card {
-    height: 100px;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .user-card-info {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .user-card-name {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .user-card-name p {
-    position: absolute;
-    bottom: 0;
-    right: 10px;
-  }
-  
-  a {
-    color: #000;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    color: #000;
-    text-decoration: underline;
-  }
-  
-  .user-pfp {
-    width: auto;
-    height: 100%;
-  }
+  height: 100px;
+  display: flex;
+  gap: 20px;
+}
+
+.user-card-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.user-card-name {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.user-card-name p {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.user-pfp {
+  width: auto;
+  height: 100%;
+}
