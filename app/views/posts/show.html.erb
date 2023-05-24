@@ -1,10 +1,13 @@
 <div class="post">
   <div class="post-card">
-    <h2 class="post-header">
-      Post <%= @post.id %> by <%= @post.author.name %>
-    </h2>
-    <div class="post-body">
-      <%= @post.text %>
+    <div class="post-card1">
+        <h2 class="post-header">
+        Post <%= @post.id %> by <%= @post.author.name %>
+            </h2>
+            <div class="post-body">
+            <%= @post.text %>
+    </div>
+    
     </div>  
     <div class="comments-card">
       <% @post.comments.each do |comment| %>
