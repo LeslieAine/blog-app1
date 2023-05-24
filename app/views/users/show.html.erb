@@ -1,1 +1,21 @@
-<h1>Placeholder for /users/:id</h1>
+<div class="user">
+  <%= render partial: 'user', locals: { user: @user } %> 
+  <div class="user-bio">
+    <h3>Bio</h3>
+    <%= @user.bio %>
+  </div>
+  <div class="user-recent-posts">
+    <% @user.recent_posts.each do |post| %>
+      <div class="post-card">
+        <h3 class="post-card-title"><%= link_to post.title, {controller: 'posts', action: "show", post_id: post.id} %></h2>
+        <p class="post-card-text"><%= post.text %></p>
+      </div>
+    <% end %>
+  </div>
+  <%= button_tag(:type => 'button') do %>
+    <% link_to "See all posts", {controller: 'posts', action: "index"} %>
+  <% end %>
+  <%= button_tag(:type => 'button') do %>
+    <% link_to "See all users", users_path %>
+  <% end %>
+</div>
