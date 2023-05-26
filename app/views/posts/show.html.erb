@@ -1,1 +1,24 @@
-<h1>Placeholder for /users/:id/posts/:post_id</h1>
+<div class="post">
+  <div class="post-card">
+    <div class="post-card1">
+        <h2 class="post-header">
+        Post <%= @post.id %> by <%= @post.author.name %>
+            </h2>
+            <div class="post-body">
+            <%= @post.text %>
+    </div>
+    
+    </div>  
+    <div class="comments-card">
+      <% @post.comments.each do |comment| %>
+        <div class="comment-card">
+          <h4 class="comment-header">Comments</h4>
+          <p class="comment-card-text"><%= comment.author.name%>: <%= comment.text %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= button_tag(:type => 'button') do %>
+    <% link_to "See all posts", user_posts_path %>
+  <% end %>
+</div>
