@@ -1,21 +1,37 @@
-<div class="user">
-  <%= render partial: 'user', locals: { user: @user } %> 
-  <div class="user-bio">
-    <h3>Bio</h3>
-    <%= @user.bio %>
+<section class='main_section'>
+  <div class='user_card'>
+    <div class='user_img'>
+      <img src= <%= @user.photo %> alt= <%= @user.name %> />
+    </div>
+
+    <div class='user_stuff'>
+      <p class='user_name'><%= @user.name %></h2>
+      <p class='posts_no'>Number of Posts: <%= @user.postscounter || 0 %></p>
+    </div>
   </div>
-  <div class="user-recent-posts">
-    <% @user.recent_posts.each do |post| %>
-      <div class="post-card">
-        <h3 class="post-card-title"><%= link_to post.title, {controller: 'posts', action: "show", post_id: post.id} %></h2>
-        <p class="post-card-text"><%= post.text %></p>
-      </div>
+
+  <div class='bio'>
+    <h4 class='bio_header'>Bio</h4>
+    <p class='bio_text'><%= @user.bio %></p>
+  </div>
+
+  <ul class='posts_list'>
+    <% if @user.posts.empty? %>
+      <li class='post_card'><%= @user.name %> has no posts</li>
     <% end %>
-  </div>
-  <%= button_tag(:type => 'button') do %>
-    <% link_to "See all posts", {controller: 'posts', action: "index"} %>
-  <% end %>
-  <%= button_tag(:type => 'button') do %>
-    <% link_to "See all users", users_path %>
-  <% end %>
-</div>
+    <% @user.recent_posts.each_with_index do |post, index| %>
+      <li class='post_card'>
+        <a href=<%= "/users/#{@user.id}/posts/#{post.id}" %> >
+          <h3><%= link_to post.title, user_post_path(@user, post) %></h3>
+        </a>
+        <p class='post_text'><%= post.text %></p>
+        <div class='comments_likes'>
+          <p class='comments_no'>Comments: <%= post.comments_counter || 0 %></p>
+          <p class='likes_no'>Likes: <%= post.likes_counter || 0 %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <a href="<%= @user.id %>/posts">See all posts</a>
+</section>

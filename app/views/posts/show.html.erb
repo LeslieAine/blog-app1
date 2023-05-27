@@ -1,24 +1,23 @@
-<div class="post">
-  <div class="post-card">
-    <div class="post-card1">
-        <h2 class="post-header">
-        Post <%= @post.id %> by <%= @post.author.name %>
-            </h2>
-            <div class="post-body">
-            <%= @post.text %>
+<section class='main_section'>
+  <div class='post_wrapper'>
+    <div class='username_post'>
+      <h3>Post <%= @post.id%> by <%=@post.author.name%></h3>
+      <div class='comments_likes'>
+        <p class='comments_no'>Comments: <%= @post.comments_counter || 0 %></p>
+        <p class='likes_no'>Likes: <%= @post.likes_counter || 0 %></p>
+      </div>
     </div>
-    
-    </div>  
-    <div class="comments-card">
-      <% @post.comments.each do |comment| %>
-        <div class="comment-card">
-          <h4 class="comment-header">Comments</h4>
-          <p class="comment-card-text"><%= comment.author.name%>: <%= comment.text %></p>
-        </div>
-      <% end %>
-    </div>
+    <p class='post_text'><%= @post.text %></p>
   </div>
-  <%= button_tag(:type => 'button') do %>
-    <% link_to "See all posts", user_posts_path %>
-  <% end %>
-</div>
+
+  <div>
+    <ul class='comments_list comments_edit'>
+      <% @post.comments.each do |comment|%>
+        <li class='comment_info'>
+          <p class='comment_author'><%= comment.author.name %></p>
+          <p class='comment_text'><%= comment.text %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
