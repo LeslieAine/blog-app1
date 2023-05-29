@@ -1,17 +1,43 @@
-<div class="posts">
-  <%= render partial: '/users/user', locals: { user: @user } %>
-  <% @user.posts.each do |post| %>
-    <div class="post-card">
-      <h3 class="post-card-title"><%= link_to post.title, {controller: 'posts', action: "show", post_id: post.id} %></h2>
-      <p class="post-card-text"><%= post.text %></p>
+<section class='main_section'>
+  <div class='user_card'>
+    <div class='user_img'>
+      <img src= <%= @user.photo %> alt= <%= @user.name %> />
     </div>
-    <div class="comments-card">
-      <% post.recent_comments.each do |comment| %>
-        <div class="comment-card">
-          <h4 class="comment-header">Comments</h4>
-          <p class="comment-card-text"><%= comment.author.name%>: <%= comment.text %></p>
+
+    <div class='user_stuff'>
+      <p class='user_name'><%= @user.name %></p>
+      <p class='posts_no'>Number of Posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+
+  <ul class='posts_list'>
+    <% @user.posts.each_with_index do |post, index|%>
+      <li>
+        <div class='post_card'>
+          <a href=<%= "/users/#{@user.id}/posts/#{post.id}" %> >
+            <h4><%= post.title %></h4>
+          </a>
+          <p class='post_text'><%= post.text%></p>
+          <div class='comments_likes'>
+            <p class='comments_no'>Comments: <%= post.comments_counter || 0 %></p>
+            <p class='likes_no'>Likes: <%= post.likes_counter || 0 %></p>
+          </div>
+
+          <ul class='comments_list'>
+            <% post.comments.each do |comment| %>
+              <li class='comment_info'>
+                <p class='comment_author'><%= comment.author.name %>:</p>
+                <p class='comment_text'><%= comment.text %></p>
+              </li>
+            <% end %>
+          </ul>
         </div>
-      <% end %>
-    </div>
-  <% end %>
-</div>
+
+      </li>
+    <% end %>
+  </ul>
+
+  <div>
+    <a href="<%= url_for("/users/#{@user.id}/posts/new") %>">Create new post</a>
+  </div
+</section>
