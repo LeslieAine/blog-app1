@@ -83,6 +83,11 @@ To run the project, execute the following command in the terminal:
 - GitHub: [@LeslieAine](https://github.com/LeslieAine)
 - LinkedIn: [LeslieAine](https://linkedin.com/in/LeslieAine)
 
+👤 **Ambrose kibet**
+
+- GitHub: [ambrose kibet](https://github.com/ambrose-kibet)
+- LinkedIn: [Ambrose kibet](https://linkedin.com/in/ambrose-kibet)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
