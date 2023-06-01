@@ -27,6 +27,7 @@ class PostsController < ApplicationController
       render :new
     end
   end
+
   def destroy
     @post = Post.find(params[:id])
     authorize! :destroy, @post
@@ -41,7 +42,7 @@ class PostsController < ApplicationController
 
     redirect_to user_posts_path(current_user)
   end
-  
+
   private
 
   def post_params
