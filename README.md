@@ -56,6 +56,7 @@ To run this project you need the following dependencies:
   git clone git@github.com:LeslieAine/blog-app1.git
   cd blog-app1
 ```
+
 - Install dependencies:
 ```sh
   bundle install
