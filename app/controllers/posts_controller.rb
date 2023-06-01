@@ -28,6 +28,8 @@ class PostsController < ApplicationController
     end
   end
 
+  load_and_authorize_resource
+
   def destroy
     @post = Post.find(params[:id])
     authorize! :destroy, @post

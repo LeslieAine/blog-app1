@@ -6,10 +6,11 @@ class Ability
 
     can :read, user
 
-    can :destroy, Post, author_id: user.id
-    can :destroy, Comment, author_id: user.id
+    can :manage, Post, author: user
+    can :manage, Comment, author: user
 
-    can :destroy, Post if user.admin?
-    can :destroy, Comment if user.admin?
+    return unless user.admin?
+
+    can :manage, :all
   end
 end
